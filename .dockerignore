@@ -1,0 +1,9 @@
+*.yml
+.dockerignore
+.git
+.gitignore
+Dockerfile
+/vendor
+/tmp
+README.md
+LICENSE

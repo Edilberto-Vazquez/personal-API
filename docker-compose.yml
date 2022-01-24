@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  app:
+    image: my-api
+    environment:
+      - PORT=3000
+    ports:
+      - "3000:3000"
+    networks:
+      - my-api
+
+networks:
+  my-api:
+    name: my-api
