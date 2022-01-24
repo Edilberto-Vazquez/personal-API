@@ -2,19 +2,13 @@ version: "3.8"
 
 services:
   my-api:
-    container_name: my-api
-    image: my-api
-    build: .
+    image: my-api:latest
+    environment:
+      - GIN_MODE=release
+      - PORT=3000
     ports:
       - 3000:3000
     volumes:
       - my-api:/usr/app/
     networks:
       - my-api
-
-volumes:
-  my-api:
-
-networks:
-  my-api:
-    name: my-api

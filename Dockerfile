@@ -8,7 +8,7 @@ WORKDIR /usr/app/
 
 RUN go mod download
 
-COPY ["*.go", "/usr/app/"]
+COPY [".", "/usr/app/"]
 
 RUN go mod vendor
 
