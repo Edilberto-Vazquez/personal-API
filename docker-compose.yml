@@ -1,15 +1,17 @@
 version: "3.8"
 
 services:
-  app:
-    image: my-api
+  my-api:
+    image: cosmtrek/air
+    working_dir: /usr/app/
+    ports:
+      - 3000:3000
     environment:
       - PORT=3000
-    ports:
-      - "3000:3000"
+    volumes:
+      - .:/usr/app/
     networks:
       - my-api
 
 networks:
-  my-api:
-    name: my-api
+  my-api: ~

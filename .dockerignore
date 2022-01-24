@@ -1,8 +1,8 @@
-*.yml
 .dockerignore
 .git
 .gitignore
 Dockerfile
+*.yml
 /vendor
 /tmp
 README.md
