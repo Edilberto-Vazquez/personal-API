@@ -23,4 +23,6 @@ go.work
 
 /tmp
 
-/data
+/mongodata
+
+mongo-init.js

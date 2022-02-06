@@ -7,4 +7,5 @@ Dockerfile
 /tmp
 LICENSE
 README.md
-/data
+/mongodata
+mongo-init.js
