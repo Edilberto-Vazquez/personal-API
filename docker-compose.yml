@@ -3,17 +3,25 @@ version: "3.8"
 services:
   my-api:
     container_name: my-api
-    image: my-api
-    build: .
+    image: cosmtrek/air
+    working_dir: /usr/app
     ports:
       - 3000:3000
+    environment:
+      - PORT=3000
+      - MONGODB_CONNSTRING=mongodb://root:1234@mongodb=value
     volumes:
-      - my-api:/usr/app/
+      - .:/usr/app/
     networks:
       - my-api
 
-volumes:
-  my-api:
+  mongodb:
+    image: mongo:latest
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=1234
+    volumes:
+      - ./data/db:data/db
 
 networks:
   my-api:
