@@ -6,6 +6,7 @@ import (
 )
 
 func main() {
-	libs.Conexion()
+	libs.StartCon()
+	defer libs.CloseCon()
 	routes.Run()
 }

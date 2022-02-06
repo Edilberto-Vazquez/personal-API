@@ -13,31 +13,31 @@ import (
 
 var (
 	Client *mongo.Client
-	err    error
+	ConErr error
 )
 
-func Conexion() {
+func StartCon() {
 	uri := os.Getenv("MONGODB_URI")
 
 	if uri == "" {
 		log.Fatal("You must set your 'MONGODB_URI' environmental variable.")
 	}
 
-	Client, err = mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
+	Client, ConErr = mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
 
-	if err != nil {
-		panic(err)
+	if ConErr != nil {
+		panic(ConErr)
 	}
 
-	defer func() {
-		if err = Client.Disconnect(context.TODO()); err != nil {
-			panic(err)
-		}
-	}()
-
-	if err = Client.Ping(context.TODO(), readpref.Primary()); err != nil {
-		panic(err)
+	if ConErr = Client.Ping(context.TODO(), readpref.Primary()); ConErr != nil {
+		panic(ConErr)
 	}
 
 	fmt.Println("Successfully connected and pinged.")
+}
+
+func CloseCon() {
+	if ConErr = Client.Disconnect(context.TODO()); ConErr != nil {
+		panic(ConErr)
+	}
 }
