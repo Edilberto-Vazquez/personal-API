@@ -30,7 +30,8 @@ func GetDataRouter(rg *gin.RouterGroup) {
 	})
 
 	myData.GET("/resume", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{"resume": "data.Resume"})
+		data, _ := services.ExperienceAndEducationFind("experience")
+		c.JSON(http.StatusOK, gin.H{"resume": data})
 	})
 
 	myData.GET("/portafolio", func(c *gin.Context) {
