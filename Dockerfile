@@ -13,6 +13,5 @@ FROM alpine:latest
 RUN apk --no-cache add ca-certificates
 WORKDIR /usr/app/
 COPY --from=builder ["/usr/app/my-api", "/usr/app/"]
-EXPOSE 3000
 CMD [ "/usr/app/my-api" ]
 
