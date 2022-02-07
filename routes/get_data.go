@@ -66,4 +66,5 @@ func GetDataRouter(rg *gin.RouterGroup) {
 			c.JSON(http.StatusOK, gin.H{"areasAndTechnologies": data})
 		}
 	})
+	myData.StaticFile("/pdf", "./documents/CV-Edilberto-Vazquez.pdf")
 }
