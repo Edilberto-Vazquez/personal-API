@@ -55,4 +55,15 @@ func GetDataRouter(rg *gin.RouterGroup) {
 			c.JSON(http.StatusOK, gin.H{"portafolio": data})
 		}
 	})
+
+	myData.GET("/areas-and-technologies", func(c *gin.Context) {
+		var data []primitive.M
+		var err error
+		data, err = services.PortafolioFind()
+		if err != nil {
+			utils.ErrorMessage(err, c)
+		} else {
+			c.JSON(http.StatusOK, gin.H{"areasAndTechnologies": data})
+		}
+	})
 }
