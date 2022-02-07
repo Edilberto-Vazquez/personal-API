@@ -7,9 +7,8 @@ services:
     working_dir: /usr/app
     ports:
       - 8000:8000
-    environment:
-      - PORT=8000
-      - MONGODB_URI=mongodb://root:root@mongodb/
+    env_file:
+      - .env
     volumes:
       - .:/usr/app/
 

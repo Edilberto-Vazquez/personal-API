@@ -6,10 +6,8 @@ services:
     image: my-api:latest
     ports:
       - 8000:8000
-    environment:
-      - GIN_MODE=release
-      - PORT=8000
-      - MONGODB_URI=${MONGODB_URI}
+    env_file:
+      - .env
 
 networks:
   dfault:

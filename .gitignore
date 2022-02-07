@@ -26,3 +26,6 @@ go.work
 /mongodata
 
 mongo-init.js
+
+# environments variables file
+.env

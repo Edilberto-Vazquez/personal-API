@@ -9,3 +9,4 @@ LICENSE
 README.md
 /mongodata
 mongo-init.js
+.env
