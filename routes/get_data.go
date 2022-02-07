@@ -30,8 +30,19 @@ func GetDataRouter(rg *gin.RouterGroup) {
 	})
 
 	myData.GET("/resume", func(c *gin.Context) {
-		data, _ := services.ExperienceAndEducationFind("experience")
-		c.JSON(http.StatusOK, gin.H{"resume": data})
+		var resume schemas.Resume
+		var data []primitive.M
+		var err error
+		if err = c.ShouldBindQuery(&resume); err != nil {
+			utils.ErrorMessage(err, c)
+		} else {
+			data, err = services.ExperienceAndEducationFind(resume.Section)
+		}
+		if err != nil {
+			utils.ErrorMessage(err, c)
+		} else {
+			c.JSON(http.StatusOK, gin.H{"resume": data})
+		}
 	})
 
 	myData.GET("/portafolio", func(c *gin.Context) {
