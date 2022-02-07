@@ -33,7 +33,7 @@ func StartCon() {
 		panic(ConErr)
 	}
 
-	fmt.Println("Successfully connected and pinged.")
+	fmt.Println("Successfully connected to mongoDB and pinged.")
 }
 
 func CloseCon() {

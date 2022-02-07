@@ -2,13 +2,15 @@ version: "3.8"
 
 services:
   my-api:
+    build: .
     image: my-api:latest
+    ports:
+      - 8000:8000
     environment:
       - GIN_MODE=release
-      - PORT=3000
-    ports:
-      - 3000:3000
-    volumes:
-      - my-api:/usr/app/
-    networks:
-      - my-api
+      - PORT=8000
+      - MONGODB_URI=""
+
+networks:
+  dfault:
+    name: my-api-network

@@ -8,7 +8,7 @@ import (
 )
 
 func AboutMeFindOne(alias string) (result bson.M, err error) {
-	coll := libs.Client.Database("mydata").Collection("about_me")
+	coll := libs.Client.Database("my-api").Collection("about_me")
 	err = coll.FindOne(context.TODO(), bson.D{{"alias", alias}}).Decode(&result)
 	return result, err
 }

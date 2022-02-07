@@ -11,7 +11,7 @@ import (
 
 func AreasAndTechnologies() (results []bson.M, err error) {
 	var cursor *mongo.Cursor
-	coll := libs.Client.Database("mydata").Collection("areas_and_technologies")
+	coll := libs.Client.Database("my-api").Collection("areas_and_technologies")
 	cursor, err = coll.Find(context.TODO(), bson.D{{}})
 	err = utils.CursorDecode(&results, cursor, err)
 	return results, err

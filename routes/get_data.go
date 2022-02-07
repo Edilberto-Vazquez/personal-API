@@ -59,7 +59,7 @@ func GetDataRouter(rg *gin.RouterGroup) {
 	myData.GET("/areas-and-technologies", func(c *gin.Context) {
 		var data []primitive.M
 		var err error
-		data, err = services.PortafolioFind()
+		data, err = services.AreasAndTechnologies()
 		if err != nil {
 			utils.ErrorMessage(err, c)
 		} else {
